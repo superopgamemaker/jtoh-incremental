@@ -9,9 +9,9 @@ document.getElementById("towerPointStatement").innerHTML = "You have " + towerPo
 setInterval(gameLoop, 33)
  function buyBuilder() {
   if (towerPoints >= builderCost) {
-    var towerPoints = towerPoints - builderCost
-    var builders = builders + 1
-    var boughtBuilders = boughtBuilders + 1
-    var builderCost = 10 ** boughtBuilders ** 2
+     towerPoints = towerPoints - builderCost
+     builders = builders + 1
+     boughtBuilders = boughtBuilders + 1
+     builderCost = 10 ** boughtBuilders ** 2
     }
 }
