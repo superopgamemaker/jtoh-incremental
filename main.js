@@ -7,6 +7,7 @@ var boughtApplications = 0
 var applicationCost = 100
 function gameLoop() {
   towerPoints = towerPoints + (builders / (1000/33))
+  builders = builders + (applications / (1000/33))
 document.getElementById("towerPointStatement").innerHTML = "You have " + towerPoints + " tower points, corresponding to a difficulty of Easy"
   }
 setInterval(gameLoop, 33)
@@ -17,5 +18,14 @@ setInterval(gameLoop, 33)
    boughtBuilders = boughtBuilders + 1
    builderCost = 10 ** boughtBuilders ** 2
     document.getElementById("buyBuilderButton").innerHTML = "Buy a builder for " + builderCost + " tower points"
+    }
+}
+function buyApplication() {
+  if (towerPoints >= applicationsCost) {
+   towerPoints = towerPoints - applicationCost
+   applications = applications + 1
+   boughtApplications = boughtApplications + 1
+   applicationCost = 100 * (10 ** (boughtBuilders * 2) ** 2)
+    document.getElementById("buyApplicationButton").innerHTML = "Buy an application for " + applicationCost + " tower points"
     }
 }
