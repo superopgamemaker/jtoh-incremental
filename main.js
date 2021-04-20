@@ -21,7 +21,7 @@ setInterval(gameLoop, 33)
     }
 }
 function buyApplication() {
-  if (towerPoints >= applicationsCost) {
+  if (towerPoints >= applicationCost) {
    towerPoints = towerPoints - applicationCost
    applications = applications + 1
    boughtApplications = boughtApplications + 1
