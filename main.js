@@ -8,4 +8,10 @@ gameLoop() {
   }
 loop(gameLoop, 33)
 buyBuilder() {
+  if towerPoints => builderCost {
+    var towerPoints = towerPoints - builderCost
+    var builders = builders + 1
+    var boughtBuilders = boughtBuilders + 1
+    var builderCost = 10 ** boughtBuilders ** 2
+    }
 }
