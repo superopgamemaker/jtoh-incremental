@@ -5,6 +5,7 @@ var boughtBuilders = 0
 var builderCost = 1
 gameLoop() {
   var towerPoints = towerPoints + (builders / (1000/33))
+document.getElementById("towerPointStatement").innerHTML = "You have " + towerPoints + " tower points, corresponding to a difficulty of Easy"
   }
 loop(gameLoop, 33)
 buyBuilder() {
