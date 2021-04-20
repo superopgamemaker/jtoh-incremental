@@ -1,31 +1,33 @@
-var towerPoints = 1
-var builders = 0
-var boughtBuilders = 0
-var builderCost = 1
-var applications = 0
-var boughtApplications = 0
-var applicationCost = 100
+let ON = OmegaNum; //so i dont have to type omeganum every time lol
+
+var towerPoints = ON(1)
+var builders = ON(0)
+var boughtBuilders = ON(0)
+var builderCost = ON(1)
+var applications = ON(0)
+var boughtApplications = ON(0)
+var applicationCost = ON(100)
 function gameLoop() {
-  towerPoints = towerPoints + (builders / (1000/33))
-  builders = builders + (applications / (1000/33))
-document.getElementById("towerPointStatement").innerHTML = "You have " + towerPoints.toString().toFixed(2) + " tower points, corresponding to a difficulty of Easy"
+  towerPoints = towerPoints.plus(builders.div(1000/33))
+  builders = builders.plus(applications.div(1000/33))
+document.getElementById("towerPointStatement").innerHTML = "You have " + towerPoints.notation() + " tower points, corresponding to a difficulty of Easy"
   }
 setInterval(gameLoop, 33)
  function buyBuilder() {
-  if (towerPoints >= builderCost) {
-   towerPoints = towerPoints - builderCost
-   builders = builders + 1
-   boughtBuilders = boughtBuilders + 1
-   builderCost = 10 ** boughtBuilders ** 2
-    document.getElementById("buyBuilderButton").innerHTML = "Buy a builder for " + builderCost + " tower points"
+  if (towerPoints.gte(builderCost)) {
+   towerPoints = towerPoints.minus(builderCost)
+   builders = builders.plus(1)
+   boughtBuilders = boughtBuilders.plus(1)
+   builderCost = ON.pow(10, boughtBuilders.pow(2))
+    document.getElementById("buyBuilderButton").innerHTML = "Buy a builder for " + builderCost.notation() + " tower points"
     }
 }
 function buyApplication() {
-  if (towerPoints >= applicationCost) {
-   towerPoints = towerPoints - applicationCost
-   applications = applications + 1
-   boughtApplications = boughtApplications + 1
-   applicationCost = 100 * ((10 ** boughtApplications ** 2) ** 2)
-    document.getElementById("buyApplicationButton").innerHTML = "Buy an application for " + applicationCost + " tower points"
+  if (towerPoints.gte(applicationCost)) {
+   towerPoints = towerPoints.minus(applicationCost)
+   applications = applications.plus(1)
+   boughtApplications = boughtApplications.plus(1)
+   applicationCost = ON(100).mul((ON.pow(10, boughtApplications.pow(2))).pow(2))
+    document.getElementById("buyApplicationButton").innerHTML = "Buy an application for " + applicationCost.notation() + " tower points"
     }
 }
