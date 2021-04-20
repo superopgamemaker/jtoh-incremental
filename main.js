@@ -25,7 +25,7 @@ function buyApplication() {
    towerPoints = towerPoints - applicationCost
    applications = applications + 1
    boughtApplications = boughtApplications + 1
-   applicationCost = 100 * ((10 ** boughtBuilders ** 2) ** 2)
+   applicationCost = 100 * ((10 ** boughtApplications ** 2) ** 2)
     document.getElementById("buyApplicationButton").innerHTML = "Buy an application for " + applicationCost + " tower points"
     }
 }
