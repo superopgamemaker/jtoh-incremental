@@ -41,7 +41,7 @@ function buyUpgrade1() {
   if (towerPoints.gte(upgrade1Cost)) {
    towerPoints = towerPoints.minus(upgrade1Cost)
    upgrade1 = upgrade1.plus(1)
-   upgrade1Cost = ON(5).mul((ON.pow(5, boughtBuilders.pow(2)))
+   upgrade1Cost = ON(5).mul((ON.pow(5, boughtBuilders.pow(2))))
    builderMultiplier = ON.pow(((upgrade1.div(5)).plus(1)), boughtBuilders)
    applicationMultiplier = ON.pow(((upgrade1.div(5)).plus(1)), boughtApplications)
    document.getElementById("buyUpgrade1Button").innerHTML = "Buy Upgrade 1 for " + upgrade1Cost.notation() + " tower points"
