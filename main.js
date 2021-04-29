@@ -17,6 +17,7 @@ function gameLoop() {
 document.getElementById("towerPointStatement").innerHTML = "You have " + towerPoints.notation() + " tower points, corresponding to a difficulty of Easy"
   }
 setInterval(gameLoop, 33)
+setInterval(save, 33)
  function buyBuilder() {
   if (towerPoints.gte(builderCost)) {
    towerPoints = towerPoints.minus(builderCost)
@@ -47,3 +48,24 @@ function buyUpgrade1() {
    document.getElementById("buyUpgrade1Button").innerHTML = "Buy Upgrade 1 for " + upgrade1Cost.notation() + " tower points"
     }
 }
+//Saving
+function save() {
+	let thesave = JSON.stringify(game);
+	thesave = btoa(thesave);
+	localStorage.setItem('elementaldimensonssave', thesave);
+}
+
+//Loading
+function load() {
+	let thesave = localStorage.getItem('elementaldimensonssave');
+	if (thesave == null) {
+		hardReset();
+	} else {
+		thesave = atob(thesave);
+		game = JSON.parse(thesave);
+	}
+	document.getElementById("hd1 cost").innerHTML = "a hydrogen dimension 1 costs " + game.firstHDCost + " hydrogen nuclei."
+	document.getElementById("hd2 cost").innerHTML = "a hydrogen dimension 2 costs " + game.secondHDCost + " hydrogen nuclei."
+}
+
+load();
